@@ -1,0 +1,7 @@
+.menuContainer {
+  background: var(--bgColorSecondary);
+  padding: calc(var(--gapSmall) * 0.5) 0;
+  margin-top: var(--gapSmall);
+  border: 1px solid var(--primaryColor);
+  box-shadow: var(--baseShadow);
+}

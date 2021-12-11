@@ -1,0 +1,19 @@
+.container {
+  & .header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    padding: 0 var(--gapSmall);
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--primaryColor);
+
+    & .headerItem {
+      padding: var(--gapSmall) var(--gap);
+      transition: background 240ms;
+
+      &:hover {
+        background: var(--bgColorTertiary);
+      }
+    }
+  }
+}

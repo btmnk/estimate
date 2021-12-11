@@ -1,0 +1,24 @@
+.divider {
+  height: 2px;
+  background: black;
+}
+
+.itemContainer {
+  display: flex;
+  gap: var(--gapSmall);
+  padding: calc(var(--gapSmall) * 0.5) var(--gap);
+  transition: background 240ms, color 240ms;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--primaryColor);
+    color: var(--fgColorAccent);
+  }
+
+  & .icon {
+  }
+
+  & .label {
+    font-size: 0.9em;
+  }
+}
