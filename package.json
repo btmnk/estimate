@@ -1,0 +1,10 @@
+{
+  "name": "estimate-root",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Rico Lafayette Maier <contact@bitmonk.de>",
+  "license": "ISC",
+  "scripts": {
+    "up": "docker-compose up --remove-orphans"
+  }
+}

@@ -10,7 +10,7 @@ const Layout: React.FC = ({ children }) => {
       <div className={styles.header}>
         <Profile className={styles.headerItem} />
       </div>
-      <div>{children}</div>
+      <div className={styles.content}>{children}</div>
     </div>
   );
 };

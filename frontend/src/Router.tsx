@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import { LoadingIndicator } from "./ui/components/LoadingIndicator/LoadingIndicator";
 
@@ -14,10 +14,10 @@ const Router: React.FC = () => {
   return (
     <BrowserRouter>
       <React.Suspense fallback={<LoadingIndicator />}>
-        <Switch>
-          <Route path={RoutePath.LANDING} component={LandingPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
+        <Routes>
+          <Route path={RoutePath.LANDING} element={<LandingPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </React.Suspense>
     </BrowserRouter>
   );

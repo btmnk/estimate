@@ -1,4 +1,8 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
   & .header {
     display: flex;
     justify-content: flex-end;
@@ -15,5 +19,9 @@
         background: var(--bgColorTertiary);
       }
     }
+  }
+
+  & .content {
+    flex: 1;
   }
 }

@@ -7,8 +7,13 @@ const GlobalSlice = createSlice({
   name: "global",
   initialState: initialGlobalState,
   reducers: {
-    setUsername(state, action: PayloadAction<string>) {
-      localStorage.setItem(LocalStorageKeys.Username, action.payload);
+    setUsername(state, action: PayloadAction<string | undefined>) {
+      if (action.payload) {
+        localStorage.setItem(LocalStorageKeys.Username, action.payload);
+      } else {
+        localStorage.removeItem(LocalStorageKeys.Username);
+      }
+
       state.username = action.payload;
     },
   },

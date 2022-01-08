@@ -6,6 +6,7 @@ services:
     env_file: .env
     volumes:
       - ./frontend:/app
+      - ./shared:/shared
       - ./node_modules:/node_modules
     ports:
       - "3000:3000"
@@ -19,9 +20,21 @@ services:
     env_file: .env
     volumes:
       - ./backend:/app
+      - ./shared:/shared
       - ./node_modules:/node_modules
     ports:
       - "8080:8080"
+    command: yarn watch
+    restart: unless-stopped
+    tty: true
+
+  estimate-shared:
+    image: node:16-alpine
+    working_dir: /app
+    env_file: .env
+    volumes:
+      - ./shared:/app
+      - ./node_modules:/node_modules
     command: yarn watch
     restart: unless-stopped
     tty: true

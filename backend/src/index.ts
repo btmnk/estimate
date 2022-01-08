@@ -1,23 +1,9 @@
-import express from "express";
-import http from "http";
-import socketio from "socket.io";
+import { WebSocketServer } from "ws";
+import { User } from "./User/User";
 
-const app = express();
-const server = http.createServer(app);
-const io = new socketio.Server(server, {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-  },
-});
-
-io.on("connection", (socket) => {
-  console.log("a user connected");
-  socket.on("chat message", (msg) => {
-    console.log({ msg });
-  });
-});
-
-server.listen(8080, () => {
-  console.log("listening on *:8080");
+const wss = new WebSocketServer({ port: 8080 });
+wss.on("connection", (ws) => {
+  const user = new User("1");
+  ws.on("message", (data) => console.log(data.toString()));
+  ws.send("welcome!");
 });
